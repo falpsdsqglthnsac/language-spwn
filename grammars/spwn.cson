@@ -1,7 +1,7 @@
 # Why yes, I did shamelessly steal most of this from Spu7Nix's vscode implementation, how did you know?
 
 scopeName: 'source.spwn'
-name: 'language-spwn'
+name: 'SPWN'
 version: '0.0.0'
 foldingStartMarker: '\{'
 foldingStopMarker: '\}'
@@ -145,7 +145,7 @@ repository:
           {
             patterns: [
               {
-                include: '#property-name'
+                include: '#property_name'
               }
             ]
           }
@@ -154,9 +154,9 @@ repository:
       {
         match: '(::)([a-zA-Z_]\\w*)'
         captures:
-          '1':
+          1:
             name: 'keyword.operator.spwn'
-          '2':
+          2:
             name: 'entity.name.function.spwn'
       }
       {
@@ -213,7 +213,7 @@ repository:
         name: 'comment.line.double-slash.spwn'
       }
     ]
-  'func-args':
+  func_args:
     patterns: [
       {
         comment: '`self` is allowed in params list'
@@ -223,9 +223,9 @@ repository:
       {
         begin: '\\b([a-zA-Z_]\\w*)(?:\\s*(:(?!:)|=(?![=>]))|\\b)'
         beginCaptures:
-          '1':
+          1:
             name: 'variable.parameter.spwn'
-          '2':
+          2:
             name: 'keyword.operator.spwn'
         end: '(?=[,)])'
         patterns: [
@@ -243,9 +243,9 @@ repository:
       {
         begin: '(!)(\\{)'
         beginCaptures:
-          '1':
+          1:
             name: 'keyword.spwn'
-          '2':
+          2:
             name: 'punctuation.other.bracket.curly.begin.spwn'
         end: '\\}'
         endCaptures: [
@@ -292,9 +292,9 @@ repository:
               {
                 begin: '(\\d+)\\s*(:)(?!:)'
                 beginCaptures:
-                  '1':
+                  1:
                     name: 'constant.numeric.spwn'
-                  '2':
+                  2:
                     name: 'keyword.operator.spwn'
                 end: ',|(?=\\})'
                 endCaptures: [
@@ -311,13 +311,13 @@ repository:
               {
                 begin: '([a-zA-Z_]\\w*)\\s*(:)(?!:)'
                 beginCaptures:
-                  '1':
+                  1:
                     patterns: [
                       {
-                        include: '#property-name'
+                        include: '#property_name'
                       }
                     ]
-                  '2':
+                  2:
                     name: 'keyword.operator.spwn'
                 end: ',|(?=\\})'
                 endCaptures: [
@@ -393,7 +393,7 @@ repository:
         ]
         patterns: [
           {
-            include: '#func-args'
+            include: '#func_args'
           }
         ]
       }
@@ -417,7 +417,7 @@ repository:
             end: '(?=\\))'
             patterns: [
               {
-                include: '#func-args'
+                include: '#func_args'
               }
             ]
           }
@@ -445,9 +445,9 @@ repository:
             comment: 'A named argument'
             match: '\\b([a-zA-Z_]\\w*)\\s*(=)(?![=>])'
             captures:
-              '1':
+              1:
                 name: 'variable.parameter.spwn'
-              '2':
+              2:
                 name: 'keyword.operator.spwn'
           }
           {
@@ -498,21 +498,21 @@ repository:
         ]
       }
     ]
-  'property-name':
+  property_name:
     patterns: [
       {
         match: '\\b(type)\\b'
         name: 'keyword.spwn'
       }
       {
-        include: '#op-overloads'
+        include: '#op_overloads'
       }
       {
         match: '[a-zA-Z_]\\w*'
         name: 'variable.property.spwn'
       }
     ]
-  'op-overloads':
+  op_overloads:
     match: '\\b_(?:either|or|and|equal|not_equal|more_or_equal|less_or_equal|more_than|less_than|times|mod|pow|plus|minus|divided_by|not|assign|add|subtract|multiply|divide|exponate|modulate|increment|pre_increment|decrement|pre_decrement|as|has|range|intdivide|intdivided_by|swap|negate|unary_range|to)_\\b'
     name: 'keyword.spwn'
   delimiters:
@@ -569,17 +569,17 @@ repository:
                   {
                     begin: '([a-zA-Z_]\\w*)\\s*(:)(?!:)'
                     beginCaptures:
-                      '1':
+                      1:
                         patterns: [
                           {
-                            include: '#op-overloads'
+                            include: '#op_overloads'
                           }
                           {
                             match: '[a-zA-Z_]\\w*'
                             name: 'entity.name.function.spwn'
                           }
                         ]
-                      '2':
+                      2:
                         name: 'keyword.operator.spwn'
                     end: ',|(?=\\})'
                     endCaptures: [
