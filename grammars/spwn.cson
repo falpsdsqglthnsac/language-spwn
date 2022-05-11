@@ -187,13 +187,6 @@ repository:
         match: '\\s+'
         name: 'text.spwn'
       }
-      ###
-      {
-        comment: 'Was originally a hack for vscode, not sure if atom needs it.'
-        match: '\\n$'
-        name: 'text.spwn'
-      }
-      ###
     ]
   comments:
     patterns: [
